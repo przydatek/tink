@@ -1,6 +1,6 @@
 licenses(["notice"])
 
-package(default_visibility = ["//tools/build_defs:internal_pkg"])
+package(default_visibility = ["//:__subpackages__"])
 
 load("//tools/build_defs:javac.bzl", "JAVACOPTS_OSS")
 
@@ -14,19 +14,19 @@ filegroup(
 )
 
 full_protos = [
-    "//proto:aes_cmac_java_proto",
-    "//proto:common_java_proto",
-    "//proto:config_java_proto",
-    "//proto:hmac_java_proto",
-    "//proto:tink_java_proto",
+    "//:aes_cmac_java_proto",
+    "//:common_java_proto",
+    "//:config_java_proto",
+    "//:hmac_java_proto",
+    "//:tink_java_proto",
 ]
 
 lite_protos = [
-    "//proto:aes_cmac_java_proto_lite",
-    "//proto:common_java_proto_lite",
-    "//proto:config_java_proto_lite",
-    "//proto:hmac_java_proto_lite",
-    "//proto:tink_java_proto_lite",
+    "//:aes_cmac_java_proto_lite",
+    "//:common_java_proto_lite",
+    "//:config_java_proto_lite",
+    "//:hmac_java_proto_lite",
+    "//:tink_java_proto_lite",
 ]
 
 java_library(
@@ -35,9 +35,9 @@ java_library(
     javacopts = JAVACOPTS_OSS,
     visibility = ["//visibility:public"],
     deps = full_protos + [
-        "//java/src/main/java/com/google/crypto/tink",
-        "//java/src/main/java/com/google/crypto/tink/subtle",
-        "//java/src/main/java/com/google/crypto/tink/subtle:mac",
+        "//src/main/java/com/google/crypto/tink",
+        "//src/main/java/com/google/crypto/tink/subtle",
+        "//src/main/java/com/google/crypto/tink/subtle:mac",
         "@com_google_protobuf_javalite//:protobuf_java_lite",
     ],
 )
@@ -48,9 +48,9 @@ java_library(
     javacopts = JAVACOPTS_OSS,
     visibility = ["//visibility:public"],
     deps = lite_protos + [
-        "//java/src/main/java/com/google/crypto/tink:android",
-        "//java/src/main/java/com/google/crypto/tink/subtle",
-        "//java/src/main/java/com/google/crypto/tink/subtle:mac",
+        "//src/main/java/com/google/crypto/tink:android",
+        "//src/main/java/com/google/crypto/tink/subtle",
+        "//src/main/java/com/google/crypto/tink/subtle:mac",
         "@com_google_protobuf_javalite//:protobuf_java_lite",
     ],
 )

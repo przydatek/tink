@@ -1,0 +1,19 @@
+workspace(name = "tink_java")
+
+local_repository(
+    name = "tink",
+    path = "..",
+)
+
+load("@tink//:tink_deps.bzl", "tink_deps")
+tink_deps()
+
+load("@tink_java//:tink_java_deps.bzl", "tink_java_deps")
+tink_java_deps()
+
+load("@tink_java//:tink_java_deps_init.bzl", "tink_java_deps_init")
+tink_java_deps_init()
+
+
+
+
