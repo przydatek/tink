@@ -18,6 +18,7 @@ import (
 	"bytes"
 	"errors"
 	"os"
+
 	// ignore-placeholder1
 	// ignore-placeholder2
 	"testing"
@@ -28,6 +29,7 @@ import (
 	"github.com/google/tink/go/aead"
 	"github.com/google/tink/go/core/registry"
 	"github.com/google/tink/go/keyset"
+
 	// ignore-placeholder3
 	"github.com/google/tink/go/subtle/random"
 	"github.com/google/tink/go/tink"
@@ -40,15 +42,15 @@ const (
 
 var (
 	// lint placeholder header, please ignore
-	credFile    = os.Getenv("TEST_SRCDIR") + "/" + os.Getenv("TEST_WORKSPACE") + "/" + "testdata/credentials_aws.csv"
-	badCredFile = os.Getenv("TEST_SRCDIR") + "/" + os.Getenv("TEST_WORKSPACE") + "/" + "testdata/bad_access_keys_aws.csv"
-	credINIFile = os.Getenv("TEST_SRCDIR") + "/" + os.Getenv("TEST_WORKSPACE") + "/" + "testdata/credentials_aws.cred"
+	credFile    = os.Getenv("TEST_SRCDIR") + "/tink/testdata/credentials_aws.csv"
+	badCredFile = os.Getenv("TEST_SRCDIR") + "/tink/testdata/bad_access_keys_aws.csv"
+	credINIFile = os.Getenv("TEST_SRCDIR") + "/tink/testdata/credentials_aws.cred"
 	// lint placeholder footer, please ignore
 )
 
 // lint placeholder header, please ignore
 func init() {
-	certPath := os.Getenv("TEST_SRCDIR") + "/" + os.Getenv("TEST_WORKSPACE") + "/" + "roots.pem"
+	certPath := os.Getenv("TEST_SRCDIR") + "/tink/roots.pem"
 	flag.Set("cacerts", certPath)
 	os.Setenv("SSL_CERT_FILE", certPath)
 }

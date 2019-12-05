@@ -23,9 +23,9 @@ import (
 	"os"
 	"testing"
 
+	"github.com/google/tink/go/subtle"
 	"github.com/google/tink/go/subtle/random"
 	subtleSignature "github.com/google/tink/go/subtle/signature"
-	"github.com/google/tink/go/subtle"
 )
 
 func TestSignVerify(t *testing.T) {
@@ -113,14 +113,15 @@ type jwk struct {
 }
 
 func TestWycheproofVectors(t *testing.T) {
+	testVectorsDir := os.Getenv("TEST_SRCDIR") + "/tink/third_party/wycheproof/testvectors/"
 	vectors := []struct {
 		Filename string
 		Encoding string
 	}{
-		{"../../../third_party/wycheproof/testvectors/ecdsa_test.json", "DER"},
-		{"../../../third_party/wycheproof/testvectors/ecdsa_secp256r1_sha256_p1363_test.json", "IEEE_P1363"},
-		{"../../../third_party/wycheproof/testvectors/ecdsa_secp384r1_sha512_p1363_test.json", "IEEE_P1363"},
-		{"../../../third_party/wycheproof/testvectors/ecdsa_secp521r1_sha512_p1363_test.json", "IEEE_P1363"},
+		{testVectorsDir + "ecdsa_test.json", "DER"},
+		{testVectorsDir + "ecdsa_secp256r1_sha256_p1363_test.json", "IEEE_P1363"},
+		{testVectorsDir + "ecdsa_secp384r1_sha512_p1363_test.json", "IEEE_P1363"},
+		{testVectorsDir + "ecdsa_secp521r1_sha512_p1363_test.json", "IEEE_P1363"},
 	}
 
 	for _, v := range vectors {

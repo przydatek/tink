@@ -36,13 +36,13 @@ const (
 
 var (
 	// lint placeholder header, please ignore
-	credFile = os.Getenv("TEST_SRCDIR") + "/" + os.Getenv("TEST_WORKSPACE") + "/" + "testdata/credential.json"
+	credFile = os.Getenv("TEST_SRCDIR") + "/tink/testdata/credential.json"
 	// lint placeholder footer, please ignore
 )
 
 // lint placeholder header, please ignore
 func init() {
-	certPath := os.Getenv("TEST_SRCDIR") + "/" + os.Getenv("TEST_WORKSPACE") + "/" + "roots.pem"
+	certPath := os.Getenv("TEST_SRCDIR") + "/tink/roots.pem"
 	flag.Set("cacerts", certPath)
 	os.Setenv("SSL_CERT_FILE", certPath)
 }
