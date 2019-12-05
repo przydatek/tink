@@ -1,5 +1,5 @@
 package(
-    default_visibility = ["//tools/build_defs:internal_pkg"],
+    default_visibility = ["//:__subpackages__"],
 )
 
 licenses(["notice"])
@@ -18,8 +18,8 @@ closure_js_library(
         "validators.js",
     ],
     deps = [
-        "//javascript:primitives",
-        "//javascript/exception",
+        "//:primitives",
+        "//exception",
         "@io_bazel_rules_closure//closure/library",
     ],
 )
@@ -34,9 +34,9 @@ closure_js_library(
     deps = [
         ":mac",
         ":subtle",
-        "//javascript:primitives",
-        "//javascript/exception",
-        "//javascript/subtle/purejs:aead",
+        "//:primitives",
+        "//exception",
+        "//subtle/purejs:aead",
         "@io_bazel_rules_closure//closure/library",
     ],
 )
@@ -48,9 +48,9 @@ closure_js_library(
     ],
     deps = [
         ":subtle",
-        "//javascript:primitives",
-        "//javascript/exception",
-        "//javascript/subtle/purejs:mac",
+        "//:primitives",
+        "//exception",
+        "//subtle/purejs:mac",
         "@io_bazel_rules_closure//closure/library",
     ],
 )
@@ -63,7 +63,7 @@ closure_js_library(
     deps = [
         ":mac",
         ":subtle",
-        "//javascript/exception",
+        "//exception",
         "@io_bazel_rules_closure//closure/library",
     ],
 )
@@ -79,8 +79,8 @@ closure_js_library(
     deps = [
         ":hkdf",
         ":subtle",
-        "//javascript:primitives",
-        "//javascript/exception",
+        "//:primitives",
+        "//exception",
         "@io_bazel_rules_closure//closure/library",
     ],
 )
@@ -93,8 +93,8 @@ closure_js_library(
     ],
     deps = [
         ":subtle",
-        "//javascript:primitives",
-        "//javascript/exception",
+        "//:primitives",
+        "//exception",
         "@io_bazel_rules_closure//closure/library",
     ],
 )

@@ -1,8 +1,135 @@
-package(
-    default_visibility = ["//tools/build_defs:internal_pkg"],
-)
+package(default_visibility = ["//:__subpackages__"])
 
 licenses(["notice"])
+
+# protos
+load("@io_bazel_rules_closure//closure:defs.bzl", "closure_proto_library")
+
+closure_proto_library(
+    name = "common_closure_proto",
+    deps = ["@tink//proto:common_proto"],
+)
+
+closure_proto_library(
+    name = "tink_closure_proto",
+    deps = ["@tink//proto:tink_proto"],
+)
+
+closure_proto_library(
+    name = "config_closure_proto",
+    deps = ["@tink//proto:config_proto"],
+)
+
+closure_proto_library(
+    name = "aes_siv_closure_proto",
+    deps = ["@tink//proto:aes_siv_proto"],
+)
+
+closure_proto_library(
+    name = "rsa_ssa_pkcs1_closure_proto",
+    deps = ["@tink//proto:rsa_ssa_pkcs1_proto"],
+)
+
+closure_proto_library(
+    name = "rsa_ssa_pss_closure_proto",
+    deps = ["@tink//proto:rsa_ssa_pss_proto"],
+)
+
+closure_proto_library(
+    name = "ecdsa_closure_proto",
+    deps = ["@tink//proto:ecdsa_proto"],
+)
+
+closure_proto_library(
+    name = "ed25519_closure_proto",
+    deps = ["@tink//proto:ed25519_proto"],
+)
+
+closure_proto_library(
+    name = "aes_cmac_closure_proto",
+    deps = ["@tink//proto:aes_cmac_proto"],
+)
+
+closure_proto_library(
+    name = "hmac_closure_proto",
+    deps = ["@tink//proto:hmac_proto"],
+)
+
+closure_proto_library(
+    name = "aes_ctr_closure_proto",
+    deps = ["@tink//proto:aes_ctr_proto"],
+)
+
+closure_proto_library(
+    name = "aes_ctr_hmac_aead_closure_proto",
+    deps = ["@tink//proto:aes_ctr_hmac_aead_proto"],
+)
+
+closure_proto_library(
+    name = "aes_gcm_closure_proto",
+    deps = ["@tink//proto:aes_gcm_proto"],
+)
+
+closure_proto_library(
+    name = "aes_gcm_siv_closure_proto",
+    deps = ["@tink//proto:aes_gcm_siv_proto"],
+)
+
+closure_proto_library(
+    name = "aes_ctr_hmac_streaming_closure_proto",
+    deps = ["@tink//proto:aes_ctr_hmac_streaming_proto"],
+)
+
+closure_proto_library(
+    name = "aes_gcm_hkdf_streaming_closure_proto",
+    deps = ["@tink//proto:aes_gcm_hkdf_streaming_proto"],
+)
+
+closure_proto_library(
+    name = "aes_eax_closure_proto",
+    deps = ["@tink//proto:aes_eax_proto"],
+)
+
+closure_proto_library(
+    name = "chacha20_poly1305_closure_proto",
+    deps = ["@tink//proto:chacha20_poly1305_proto"],
+)
+
+closure_proto_library(
+    name = "kms_aead_closure_proto",
+    deps = ["@tink//proto:kms_aead_proto"],
+)
+
+closure_proto_library(
+    name = "kms_envelope_closure_proto",
+    deps = ["@tink//proto:kms_envelope_proto"],
+)
+
+closure_proto_library(
+    name = "ecies_aead_hkdf_closure_proto",
+    deps = ["@tink//proto:ecies_aead_hkdf_proto"],
+)
+
+closure_proto_library(
+    name = "xchacha20_poly1305_closure_proto",
+    deps = ["@tink//proto:xchacha20_poly1305_proto"],
+)
+
+closure_proto_library(
+    name = "hkdf_prf_closure_proto",
+    deps = ["@tink//proto:hkdf_prf_proto"],
+)
+
+closure_proto_library(
+    name = "prf_based_deriver_closure_proto",
+    deps = ["@tink//proto:prf_based_deriver_proto"],
+)
+
+closure_proto_library(
+    name = "empty_closure_proto",
+    deps = ["@tink//proto:empty_proto"],
+)
+
 
 load("@io_bazel_rules_closure//closure:defs.bzl", "closure_js_binary", "closure_js_library")
 
@@ -58,7 +185,7 @@ closure_js_library(
         "public_key_verify.js",
     ],
     deps = [
-        "//javascript/exception",
+        "//exception",
         "@io_bazel_rules_closure//closure/library",
     ],
 )
@@ -70,8 +197,8 @@ closure_js_library(
     ],
     deps = [
         ":readers_writers",
-        "//javascript/exception",
-        "//proto:tink_closure_proto",
+        "//exception",
+        "//:tink_closure_proto",
         "@io_bazel_rules_closure//closure/library",
     ],
 )
@@ -83,7 +210,7 @@ closure_js_library(
     ],
     deps = [
         ":readers_writers",
-        "//javascript/exception",
+        "//exception",
         "@io_bazel_rules_closure//closure/library",
     ],
 )
@@ -95,7 +222,7 @@ closure_js_library(
         "keyset_writer.js",
     ],
     deps = [
-        "//proto:tink_closure_proto",
+        "//:tink_closure_proto",
         "@io_bazel_rules_closure//closure/library",
     ],
 )
@@ -112,9 +239,9 @@ closure_js_library(
         ":readers_writers",
         ":registry",
         ":util",
-        "//javascript/exception",
-        "//javascript/subtle",
-        "//proto:tink_closure_proto",
+        "//exception",
+        "//subtle",
+        "//:tink_closure_proto",
         "@io_bazel_rules_closure//closure/library",
     ],
 )
@@ -126,7 +253,7 @@ closure_js_library(
     ],
     deps = [
         ":keyset_handle",
-        "//proto:tink_closure_proto",
+        "//:tink_closure_proto",
         "@io_bazel_rules_closure//closure/library",
     ],
 )
@@ -138,8 +265,8 @@ closure_js_library(
     ],
     deps = [
         ":crypto_format",
-        "//javascript/exception",
-        "//proto:tink_closure_proto",
+        "//exception",
+        "//:tink_closure_proto",
         "@io_bazel_rules_closure//closure/library",
     ],
 )
@@ -150,8 +277,8 @@ closure_js_library(
         "key_manager.js",
     ],
     deps = [
-        "//javascript/exception",
-        "//proto:tink_closure_proto",
+        "//exception",
+        "//:tink_closure_proto",
         "@io_bazel_rules_closure//closure/library",
         "@io_bazel_rules_closure//closure/protobuf:jspb",
     ],
@@ -178,8 +305,8 @@ closure_js_library(
         ":primitive_set",
         ":primitive_wrapper",
         ":util",
-        "//javascript/exception",
-        "//proto:tink_closure_proto",
+        "//exception",
+        "//:tink_closure_proto",
         "@io_bazel_rules_closure//closure/library",
         "@io_bazel_rules_closure//closure/protobuf:jspb",
     ],
@@ -191,8 +318,8 @@ closure_js_library(
         "crypto_format.js",
     ],
     deps = [
-        "//javascript/exception",
-        "//proto:tink_closure_proto",
+        "//exception",
+        "//:tink_closure_proto",
         "@io_bazel_rules_closure//closure/library",
     ],
 )
@@ -203,10 +330,10 @@ closure_js_library(
         "util.js",
     ],
     deps = [
-        "//javascript/exception",
-        "//javascript/subtle",
-        "//proto:common_closure_proto",
-        "//proto:tink_closure_proto",
+        "//exception",
+        "//subtle",
+        "//:common_closure_proto",
+        "//:tink_closure_proto",
         "@io_bazel_rules_closure//closure/library",
     ],
 )

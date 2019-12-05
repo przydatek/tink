@@ -1,5 +1,5 @@
 package(
-    default_visibility = ["//tools/build_defs:internal_pkg"],
+    default_visibility = ["//:__subpackages__"],
 )
 
 licenses(["notice"])
@@ -12,9 +12,9 @@ closure_js_library(
         "aes_ctr.js",
     ],
     deps = [
-        "//javascript:primitives",
-        "//javascript/exception",
-        "//javascript/subtle",
+        "//:primitives",
+        "//exception",
+        "//subtle",
         "@io_bazel_rules_closure//closure/library",
         "@io_bazel_rules_closure//closure/library/crypt:aes",
         "@io_bazel_rules_closure//closure/library/crypt:ctr",
@@ -27,9 +27,9 @@ closure_js_library(
         "hmac.js",
     ],
     deps = [
-        "//javascript:primitives",
-        "//javascript/exception",
-        "//javascript/subtle",
+        "//:primitives",
+        "//exception",
+        "//subtle",
         "@io_bazel_rules_closure//closure/library",
         "@io_bazel_rules_closure//closure/library/array",
         "@io_bazel_rules_closure//closure/library/crypt:hmac",

@@ -1,6 +1,6 @@
 package(
     default_visibility = [
-        "//tools/build_defs:internal_pkg",
+        "//:__subpackages__",
     ],
 )
 
@@ -25,11 +25,11 @@ closure_js_library(
         "ecdsa_util.js",
     ],
     deps = [
-        "//javascript:util",
-        "//javascript/exception",
-        "//javascript/subtle",
-        "//proto:common_closure_proto",
-        "//proto:ecdsa_closure_proto",
+        "//:util",
+        "//exception",
+        "//subtle",
+        "//:common_closure_proto",
+        "//:ecdsa_closure_proto",
         "@io_bazel_rules_closure//closure/library",
     ],
 )
@@ -42,14 +42,14 @@ closure_js_library(
     ],
     deps = [
         ":utils",
-        "//javascript:key_manager",
-        "//javascript:primitives",
-        "//javascript:util",
-        "//javascript/exception",
-        "//javascript/subtle",
-        "//javascript/subtle:signature",
-        "//proto:ecdsa_closure_proto",
-        "//proto:tink_closure_proto",
+        "//:key_manager",
+        "//:primitives",
+        "//:util",
+        "//exception",
+        "//subtle",
+        "//subtle:signature",
+        "//:ecdsa_closure_proto",
+        "//:tink_closure_proto",
         "@io_bazel_rules_closure//closure/library",
         "@io_bazel_rules_closure//closure/protobuf:jspb",
     ],
@@ -62,13 +62,13 @@ closure_js_library(
         "public_key_verify_wrapper.js",
     ],
     deps = [
-        "//javascript:crypto_format",
-        "//javascript:primitive_set",
-        "//javascript:primitive_wrapper",
-        "//javascript:primitives",
-        "//javascript/exception",
-        "//javascript/subtle",
-        "//proto:tink_closure_proto",
+        "//:crypto_format",
+        "//:primitive_set",
+        "//:primitive_wrapper",
+        "//:primitives",
+        "//exception",
+        "//subtle",
+        "//:tink_closure_proto",
         "@io_bazel_rules_closure//closure/library",
     ],
 )
@@ -81,8 +81,8 @@ closure_js_library(
     deps = [
         ":ecdsa_key_managers",
         ":wrappers",
-        "//javascript:registry",
-        "//javascript/aead:aead_config",
+        "//:registry",
+        "//aead:aead_config",
         "@io_bazel_rules_closure//closure/library",
     ],
 )
@@ -94,9 +94,9 @@ closure_js_library(
     ],
     deps = [
         ":config",
-        "//proto:common_closure_proto",
-        "//proto:ecdsa_closure_proto",
-        "//proto:tink_closure_proto",
+        "//:common_closure_proto",
+        "//:ecdsa_closure_proto",
+        "//:tink_closure_proto",
         "@io_bazel_rules_closure//closure/library",
     ],
 )
@@ -110,9 +110,9 @@ closure_js_library(
         "*_test.js",
     ]),
     deps = [
-        "//proto:common_closure_proto",
-        "//proto:ecdsa_closure_proto",
-        "//proto:tink_closure_proto",
+        "//:common_closure_proto",
+        "//:ecdsa_closure_proto",
+        "//:tink_closure_proto",
         "@io_bazel_rules_closure//closure/library",
         "@io_bazel_rules_closure//closure/library/testing:asserts",
         "@io_bazel_rules_closure//closure/library/testing:jsunit",

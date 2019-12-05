@@ -1,0 +1,15 @@
+workspace(name = "tink_javascript")
+
+local_repository(
+    name = "tink",
+    path = "..",
+)
+
+load("@tink//:tink_deps.bzl", "tink_deps")
+tink_deps()
+
+load("@tink_javascript//:tink_javascript_deps.bzl", "tink_javascript_deps")
+tink_javascript_deps()
+
+load("@tink_javascript//:tink_javascript_deps_init.bzl", "tink_javascript_deps_init")
+tink_javascript_deps_init()
