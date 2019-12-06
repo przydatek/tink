@@ -1,0 +1,27 @@
+workspace(name = "tink_helloworld_cc")
+
+local_repository(
+    name = "tink",
+    path = "../../..",
+)
+
+local_repository(
+    name = "tink_cc",
+    path = "../../../cc",
+)
+
+load("@tink//:tink_deps.bzl", "tink_deps")
+tink_deps()
+
+load("@tink//:tink_deps_init.bzl", "tink_deps_init")
+tink_deps_init()
+
+load("@tink_cc//:tink_cc_deps.bzl", "tink_cc_deps")
+tink_cc_deps()
+
+load("@tink_cc//:tink_cc_deps_init.bzl", "tink_cc_deps_init")
+tink_cc_deps_init()
+
+
+
+

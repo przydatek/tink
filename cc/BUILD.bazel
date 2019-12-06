@@ -1,4 +1,6 @@
-package(default_visibility = ["//:__subpackages__"])
+default_visibility = ["//:__subpackages__"]
+
+package(default_visibility = default_visibility)
 
 licenses(["notice"])
 
@@ -648,6 +650,8 @@ cc_library(
     name = "cleartext_keyset_handle",
     srcs = ["core/cleartext_keyset_handle.cc"],
     hdrs = ["cleartext_keyset_handle.h"],
+    #    visibility = ["//visibility:public"],  // works fine
+    visibility = default_visibility + ["@tink_helloworld_cc//:hello_world"],
     include_prefix = "tink",
     deps = [
         ":keyset_handle",
@@ -878,7 +882,6 @@ genrule(
         "manual",  # Does not run on OSX yet.  TODO(b/78299422)
     ],
 )
-
 
 # tests
 
